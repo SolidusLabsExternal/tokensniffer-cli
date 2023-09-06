@@ -1,6 +1,12 @@
+import json
+
 import click
 
 from tokensniffer.api import TokenSnifferAPI
+
+
+def click_echo_json(d: dict):
+    click.echo(json.dumps(d))
 
 
 @click.group()
@@ -14,7 +20,7 @@ def cli(ctx, api_key):
 @click.pass_obj
 def request_limit(api):
     result = api.get_request_limit()
-    click.echo(result)
+    click_echo_json(result)
 
 
 @cli.command()
@@ -23,14 +29,14 @@ def request_limit(api):
 @click.pass_obj
 def token_info(api, chain_id, address):
     result = api.get_token_info(chain_id, address)
-    click.echo(result)
+    click_echo_json(result)
 
 
 @cli.command()
 @click.pass_obj
 def scam_tokens_last_24_hours(api):
     result = api.get_scam_tokens_last_24_hours()
-    click.echo(result)
+    click_echo_json(result)
 
 
 @cli.command()
@@ -38,7 +44,7 @@ def scam_tokens_last_24_hours(api):
 @click.pass_obj
 def scam_tokens_for_address(api, address):
     result = api.get_scam_tokens_for_address(address)
-    click.echo(result)
+    click_echo_json(result)
 
 
 @cli.command()
@@ -46,7 +52,7 @@ def scam_tokens_for_address(api, address):
 @click.pass_obj
 def addresses_with_scam_tokens_last_24_hours(api, network):
     result = api.get_addresses_with_scam_tokens_last_24_hours(network)
-    click.echo(result)
+    click_echo_json(result)
 
 
 if __name__ == "__main__":
