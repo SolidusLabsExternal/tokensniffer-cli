@@ -8,7 +8,7 @@ BASE_URL = "https://tokensniffer.com/api/v2"
 
 class TokenSnifferAPI:
     def __init__(self, api_key: Optional[str] = None):
-        self.api_key = os.getenv("TOKENSNIFFER_API_KEY", api_key)
+        self.api_key = api_key or os.getenv("TOKENSNIFFER_API_KEY")
 
     def get_request_limit(self):
         url = f"{BASE_URL}/usage"
