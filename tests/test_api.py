@@ -35,12 +35,11 @@ def test_list_scam_tokens(api):
 
 
 def test_get_address(api):
-    result = api.get_address(NULL_ADDRESS)
+    result = api.get_address(address=NULL_ADDRESS)
     assert result["message"] == "OK"
 
 
-@pytest.mark.skip
 def test_list_scam_addresses(api):
-    network = "BSC"
-    result = api.list_scam_addresses(network)
+    chain_id = 1
+    result = api.list_scam_addresses(chain_id=chain_id)
     assert result["message"] == "OK"

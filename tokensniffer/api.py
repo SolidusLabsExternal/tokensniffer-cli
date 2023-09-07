@@ -34,13 +34,13 @@ class TokenSnifferAPI:
         response = requests.get(url, params=params)
         return response.json()
 
-    def list_scam_addresses(self, network):
+    def list_scam_addresses(self, chain_id):
         """
         Get the addresses that deployed a known scam token in the last 24 hours.
         NOTE: this endpoint is not available in the subscription plans,
               for access please contact us: https://www.soliduslabs.com/contact
         """
-        url = f"{BASE_URL}/addresses/"
-        params = {"network": network, "apikey": self.api_key}
+        url = f"{BASE_URL}/addresses/scams"
+        params = {"chain_id": chain_id, "apikey": self.api_key}
         response = requests.get(url, params=params)
         return response.json()

@@ -48,10 +48,10 @@ def get_address(api, address):
 
 
 @cli.command()
-@click.option("--network", required=True)
+@click.option("--chain_id", required=True)
 @click.pass_obj
-def list_scam_addresses(api, network):
-    result = api.list_scam_addresses(network)
+def list_scam_addresses(api, chain_id):
+    result = api.list_scam_addresses(chain_id)
     click_echo_json(result)
 
 

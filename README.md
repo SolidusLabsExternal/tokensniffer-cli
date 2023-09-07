@@ -31,8 +31,11 @@ tokensniffer --api-key "$TOKENSNIFFER_API_KEY" list-scam-tokens
 
 tokensniffer --api-key "$TOKENSNIFFER_API_KEY" get-address --address "0x0000000000000000000000000000000000000000"
 
-# tokensniffer --api-key "$TOKENSNIFFER_API_KEY" list-scam-addresses
-# NOTE: this endpoint is not available in the subscription plans,
-#  for access please contact us: https://www.soliduslabs.com/contact
+tokensniffer --api-key "$TOKENSNIFFER_API_KEY" list-scam-addresses --chain-id 1
+
 
 ```
+
+NOTE:
+`list-scam-addresses` & `list-scam-tokens` endpoints are not available in the subscription plans,
+for access please contact us: https://www.soliduslabs.com/contact
