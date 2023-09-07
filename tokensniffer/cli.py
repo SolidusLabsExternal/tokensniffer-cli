@@ -5,8 +5,8 @@ import click
 from tokensniffer.api import TokenSnifferAPI
 
 
-def click_echo_json(d: dict):
-    click.echo(json.dumps(d))
+def click_echo_json(resp: dict):
+    click.echo(json.dumps(resp))
 
 
 @click.group()
