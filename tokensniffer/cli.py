@@ -10,7 +10,7 @@ def click_echo_json(d: dict):
 
 
 @click.group()
-@click.option("--api-key", required=True, help="Your TokenSniffer API key.")
+@click.option("--api-key", required=True)
 @click.pass_context
 def cli(ctx, api_key):
     ctx.obj = TokenSnifferAPI(api_key)
@@ -18,40 +18,40 @@ def cli(ctx, api_key):
 
 @cli.command()
 @click.pass_obj
-def request_limit(api):
-    result = api.get_request_limit()
+def get_usage(api):
+    result = api.get_usage()
     click_echo_json(result)
 
 
 @cli.command()
-@click.argument("chain_id")
-@click.argument("address")
+@click.option("--chain-id", required=True)
+@click.option("--address", required=True)
 @click.pass_obj
-def token_info(api, chain_id, address):
-    result = api.get_token_info(chain_id, address)
+def get_token(api, chain_id, address):
+    result = api.get_token(chain_id, address)
     click_echo_json(result)
 
 
 @cli.command()
 @click.pass_obj
-def scam_tokens_last_24_hours(api):
-    result = api.get_scam_tokens_last_24_hours()
+def list_scam_tokens(api):
+    result = api.list_scam_tokens()
     click_echo_json(result)
 
 
 @cli.command()
-@click.argument("address")
+@click.option("--address", required=True)
 @click.pass_obj
-def scam_tokens_for_address(api, address):
-    result = api.get_scam_tokens_for_address(address)
+def get_address(api, address):
+    result = api.get_address(address)
     click_echo_json(result)
 
 
 @cli.command()
-@click.argument("network")
+@click.option("--network", required=True)
 @click.pass_obj
-def addresses_with_scam_tokens_last_24_hours(api, network):
-    result = api.get_addresses_with_scam_tokens_last_24_hours(network)
+def list_scam_addresses(api, network):
+    result = api.list_scam_addresses(network)
     click_echo_json(result)
 
 
