@@ -10,31 +10,31 @@ class TokenSnifferAPI:
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or os.getenv("TOKENSNIFFER_API_KEY")
 
-    def get_request_limit(self):
+    def get_usage(self):
         url = f"{BASE_URL}/usage"
         params = {"apikey": self.api_key}
         response = requests.get(url, params=params)
         return response.json()
 
-    def get_token_info(self, chain_id, address):
+    def get_token(self, chain_id, address):
         url = f"{BASE_URL}/tokens/{chain_id}/{address}"
         params = {"apikey": self.api_key}
         response = requests.get(url, params=params)
         return response.json()
 
-    def get_scam_tokens_last_24_hours(self):
+    def list_scam_tokens(self):
         url = f"{BASE_URL}/tokens/scams"
         params = {"apikey": self.api_key}
         response = requests.get(url, params=params)
         return response.json()
 
-    def get_scam_tokens_for_address(self, address):
+    def get_address(self, address):
         url = f"{BASE_URL}/addresses/{address}"
         params = {"apikey": self.api_key}
         response = requests.get(url, params=params)
         return response.json()
 
-    def get_addresses_with_scam_tokens_last_24_hours(self, network):
+    def list_scam_addresses(self, network):
         """
         Get the addresses that deployed a known scam token in the last 24 hours.
         NOTE: this endpoint is not available in the subscription plans,
