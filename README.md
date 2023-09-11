@@ -1,6 +1,8 @@
 # tokensniffer-cli
 
 CLI and Python modules for accessing the TokenSniffer API.
+See docs:
+https://tokensniffer.readme.io/reference/introduction
 
 PyPI packages may be released over time.
 For now, installing the CLI and modules from the git repo on your favorite project:
