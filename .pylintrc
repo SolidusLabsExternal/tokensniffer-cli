@@ -1,2 +1,2 @@
 [MESSAGES CONTROL]
-disable=missing-function-docstring, missing-class-docstring, missing-module-docstring, missing-timeout, no-value-for-parameter
+disable=missing-function-docstring, missing-class-docstring, missing-module-docstring, missing-timeout, no-value-for-parameter, too-many-arguments
