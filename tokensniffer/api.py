@@ -16,15 +16,35 @@ class TokenSnifferAPI:
         response = requests.get(url, params=params)
         return response.json()
 
-    def get_token(self, chain_id: int, address: str, include_metrics: bool = False, include_tests: bool = False, block_until_ready: bool = False):
+    def get_token(
+        self,
+        chain_id: int,
+        address: str,
+        include_metrics: bool = False,
+        include_tests: bool = False,
+        block_until_ready: bool = False,
+    ):
         url = f"{BASE_URL}/tokens/{chain_id}/{address}"
-        params = {"apikey": self.api_key, "include_metrics": include_metrics, "include_tests": include_tests, "block_until_ready": block_until_ready}
+        params = {
+            "apikey": self.api_key,
+            "include_metrics": include_metrics,
+            "include_tests": include_tests,
+            "block_until_ready": block_until_ready,
+        }
         response = requests.get(url, params=params)
         return response.json()
 
-    def list_scam_tokens(self, chain_id=None, limit=None, offset=None, deployer_address=None):
+    def list_scam_tokens(
+        self, chain_id=None, limit=None, offset=None, deployer_address=None
+    ):
         url = f"{BASE_URL}/tokens/scams"
-        params = {"apikey": self.api_key, "chain_id": chain_id, "limit": limit, "offset": offset, "deployer_address": deployer_address}
+        params = {
+            "apikey": self.api_key,
+            "chain_id": chain_id,
+            "limit": limit,
+            "offset": offset,
+            "deployer_address": deployer_address,
+        }
         response = requests.get(url, params=params)
         return response.json()
 
@@ -41,6 +61,11 @@ class TokenSnifferAPI:
               for access please contact us: https://www.soliduslabs.com/contact
         """
         url = f"{BASE_URL}/addresses/scams"
-        params = {"chain_id": chain_id, "apikey": self.api_key, "limit": limit, "offset": offset}
+        params = {
+            "chain_id": chain_id,
+            "apikey": self.api_key,
+            "limit": limit,
+            "offset": offset,
+        }
         response = requests.get(url, params=params)
         return response.json()
