@@ -24,17 +24,18 @@ pip install ../tokensniffer-cli/
 
 # CLI use examples
 
+By default, API key is fetched from your environment variable `TOKENSNIFFER_API_KEY`. It can also be passed as a parameter.
+
 ```sh
-tokensniffer --api-key "$TOKENSNIFFER_API_KEY" get-usage
+tokensniffer get-usage
 
-tokensniffer --api-key "$TOKENSNIFFER_API_KEY" get-token --chain-id 1 --address "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+tokensniffer get-token --chain-id 1 --address "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 
-tokensniffer --api-key "$TOKENSNIFFER_API_KEY" list-scam-tokens
+tokensniffer list-scam-tokens
 
-tokensniffer --api-key "$TOKENSNIFFER_API_KEY" get-address --address "0x0000000000000000000000000000000000000000"
+tokensniffer get-address --address "0x0000000000000000000000000000000000000000"
 
-tokensniffer --api-key "$TOKENSNIFFER_API_KEY" list-scam-addresses --chain-id 1
-
+tokensniffer list-scam-addresses --chain-id 1
 
 ```
 

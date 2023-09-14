@@ -10,7 +10,7 @@ def click_echo_json(resp: dict):
 
 
 @click.group()
-@click.option("--api-key", required=True)
+@click.option("--api-key", required=False)
 @click.pass_context
 def cli(ctx, api_key):
     ctx.obj = TokenSnifferAPI(api_key)
@@ -59,7 +59,7 @@ def get_address(api, address):
 
 
 @cli.command()
-@click.option("--chain_id", required=False)
+@click.option("--chain-id", required=False)
 @click.option("--limit", required=False)
 @click.option("--offset", required=False)
 @click.pass_obj
